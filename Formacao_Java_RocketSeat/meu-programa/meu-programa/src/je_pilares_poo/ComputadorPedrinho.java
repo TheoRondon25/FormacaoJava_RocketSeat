@@ -5,5 +5,9 @@ public class ComputadorPedrinho {
         MSNMessenger msnMessenger = new MSNMessenger();
         msnMessenger.enviarMensagem();
         msnMessenger.receberMensagem();
+
+        FacebookMessenger facebookMessenger = new FacebookMessenger();
+        facebookMessenger.enviarMensagem();
+        facebookMessenger.receberMensagem();
     }
 }
