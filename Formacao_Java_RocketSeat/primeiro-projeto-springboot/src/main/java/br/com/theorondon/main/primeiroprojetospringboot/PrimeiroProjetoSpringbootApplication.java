@@ -1,9 +1,11 @@
-package br.com.theorondon.main;
+package br.com.theorondon.main.primeiroprojetospringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "br.com.theorondon.main")
 public class PrimeiroProjetoSpringbootApplication {
 
 	public static void main(String[] args) {
