@@ -1,5 +1,7 @@
 package br.com.theorondon.main.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -36,6 +38,16 @@ public class PrimeiraController {
     @PostMapping("/metodoComListHeaders")
     public String metodoComListHeaders(@RequestHeader Map<String, String> headers) {
         return "metodoComListHeaders " + headers.entrySet();
+    }
+
+    @GetMapping("/ResponseEntity/{id}")
+    public ResponseEntity<Object> metodoResponseEntity(@PathVariable Long id) {
+        var usuario = new Usuario("theorondon");
+
+        if(id > 5) {
+            return ResponseEntity.status(HttpStatus.OK).body(usuario);
+        }
+        return ResponseEntity.badRequest().body("Numero menor que 5");
     }
 
     record Usuario(String username) {}
