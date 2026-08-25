@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.theorondon.gestao_vagas.modules.candidate.CandidateEntity;
 import br.com.theorondon.gestao_vagas.modules.candidate.CandidateRepository;
+import br.com.theorondon.gestao_vagas.exceptions.UserFoundException;
 import jakarta.validation.Valid;
 
 @RestController
@@ -19,6 +20,11 @@ public class CandidateController {
     
     @PostMapping("/")
     public CandidateEntity create(@Valid @RequestBody CandidateEntity candidateEntity) {
+        this.candidateRepository
+            .findByUsernameOrEmail(candidateEntity.getUsername(), candidateEntity.getEmail())
+            .ifPresent((user) -> {
+                throw new UserFoundException();
+            });
         return this.candidateRepository.save(candidateEntity);
     }
 }
