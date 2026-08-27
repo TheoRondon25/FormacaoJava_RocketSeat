@@ -1,4 +1,4 @@
-package br.com.theorondon.gestao_vagas.modules.controllers;
+package br.com.theorondon.gestao_vagas.modules.company.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
