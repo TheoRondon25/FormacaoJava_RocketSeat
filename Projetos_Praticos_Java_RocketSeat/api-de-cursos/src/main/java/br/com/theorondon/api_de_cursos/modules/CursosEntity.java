@@ -26,8 +26,7 @@ public class CursosEntity {
     
     @NotBlank(message = "O campo [category] não pode estar em branco")
     private String category;
-    
-    @NotBlank(message = "O campo [professor] não pode estar em branco")
+        
     private String professor;
     
     private boolean active = true;

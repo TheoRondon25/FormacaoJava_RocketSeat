@@ -1,12 +1,15 @@
 package br.com.theorondon.api_de_cursos.modules.controllers;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,5 +40,25 @@ public class CursosController {
         var cursos = this.cursosRepository.findByFilters(name, category);
         return ResponseEntity.ok(cursos);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CursosEntity> update(
+        @PathVariable UUID id,
+        @Valid @RequestBody CursosEntity cursoAtualizado) {
+        
+            var cursoExistente = this.cursosRepository.findById(id);
+
+            if(cursoExistente.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+
+            var curso = cursoExistente.get();
+            curso.setName(cursoAtualizado.getName());
+            curso.setCategory(cursoAtualizado.getCategory());
+
+            var cursoSalvo = this.cursosRepository.save(curso);
+            return ResponseEntity.ok(cursoSalvo);
+    }
+    
 
 }
