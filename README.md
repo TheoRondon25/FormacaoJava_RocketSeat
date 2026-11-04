@@ -16,7 +16,8 @@ FormacaoJava_RocketSeat/
 │   ├── meu-programa/                   # Fundamentos de Java (POO, coleções, JavaBeans...)
 │   ├── maven-rocket/                   # Introdução ao Maven + JDBC (PostgreSQL)
 │   ├── primeiro-projeto-springboot/    # Primeiros passos com Spring Boot (IoC/DI, Controllers)
-│   └── gestao_vagas/                   # API completa de gestão de vagas (Spring Boot + Security + JWT)
+│   ├── gestao_vagas/                   # API completa de gestão de vagas (Spring Boot + Security + JWT)
+|   └── front_gestao_vagas/             # Front com Thymeleaf para o projeto de gestão de vagas  
 │
 └── Projetos_Praticos_Java_RocketSeat/  # Desafios práticos feitos POR CONTA PRÓPRIA, para treinar
     ├── api-de-cursos/                  # API REST de gerenciamento de cursos
